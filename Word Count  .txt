@@ -1,0 +1,36 @@
+Word Count : 
+
+package countwords;
+import java.util.HashMap;
+
+public class WordCount {
+    public static void main(String[] args) {
+        String inputString = "Hello world! This is a test string. Hello again.";
+
+        // Split the string into words
+        String[] words = inputString.split("\\s+");
+
+        // Create a HashMap to store word counts
+        HashMap<String, Integer> wordCounts = new HashMap<>();
+
+        // Count the occurrences of each word
+        int totalCount = 0; // Variable to store total count of words
+        for (String word : words) {
+            // Remove punctuation marks
+            word = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+            // Update word count
+            if (!word.isEmpty()) {
+                wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+                totalCount++; // Increment total count
+            }
+        }
+
+        // Print the total count of words
+        System.out.println("Total Count of Words: " + totalCount);
+
+        
+    }
+}
+
+
+
